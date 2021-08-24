@@ -32,7 +32,7 @@ public class JurosCompostosServlet extends HttpServlet {
 			Double capital = Double.parseDouble(request.getParameter("valor_atual"));
 			Double juros = Double.parseDouble(request.getParameter("juros"));
 			Integer meses = Integer.parseInt(request.getParameter("meses"));
-			Double valorFinal = capital*Math.pow(1+juros, meses);
+			Double valorFinal = capital*Math.pow(1+(juros/100), meses);
 			response.getWriter().append("<h1>O valor do juros compostos é "+String.format("%.2f", valorFinal)+"</h1>");
 		} catch (Exception ex) {
 			response.getWriter().append("<h1>Ocorreu um erro ao calcular os juros simples.</h1>");
